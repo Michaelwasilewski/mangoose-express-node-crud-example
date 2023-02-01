@@ -40,6 +40,12 @@ db.once('open', function() {
     console.log("We're connected to the database <3 <3 !");
 });
 
+app.get('/', (req, res) => {
+    res.send("Hello i am a response hihi");
+});
+app.get('*', (req, res) => {
+    res.send("Hello motherfucker i am a response hihi");
+});
 // create a new device
 app.post('/createcar', async (req, res) => {
     console.log(req.body)
