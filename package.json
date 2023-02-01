@@ -1,7 +1,7 @@
 {
   "name": "mangodb-express-node-example",
   "version": "1.0.0",
-  "description": "",
+  "description": "Mastering MongoDB: A Comprehensive Guide to CRUD Operations and Mongoose plus Express JS Here is an explanation of Document databases and an example of using MongoDB with Mongoose:",
   "main": "app.js",
   "type": "module",
   "scripts": {
@@ -18,5 +18,13 @@
     "mongoose": "^6.9.0",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.20"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Michaelwasilewski/mangoose-express-node-crud-example.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Michaelwasilewski/mangoose-express-node-crud-example/issues"
+  },
+  "homepage": "https://github.com/Michaelwasilewski/mangoose-express-node-crud-example#readme"
 }

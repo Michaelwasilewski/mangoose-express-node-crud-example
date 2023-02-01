@@ -15,13 +15,15 @@ app.use(morgan('combined'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // create a schema for the devices collection
-const DeviceSchema = new mongoose.Schema({
-    device_name: String,
-    price: Number
+const CarSchema= new mongoose.Schema({
+    CarModel: String,
+    CarMake: String,
+    CarTopSpeed: Number,
+    Year: Number
 });
 
 // create a model based on the schema
-const Device = mongoose.model('Device', DeviceSchema);
+const Car = mongoose.model('Car', CarSchema);
 
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
@@ -39,44 +41,44 @@ db.once('open', function() {
 });
 
 // create a new device
-app.post('/createdevice', async (req, res) => {
+app.post('/createcar', async (req, res) => {
     console.log(req.body)
-    const device = new Device(req.body);
+    const car = new Car(req.body);
     try {
-        const savedDevice = await device.save();
-        res.send(savedDevice);
+        const savedCar = await car.save();
+        res.send(savedCar);
     } catch (error) {
         res.status(400).send(error);
     }
 });
 
 // read all devices
-app.get('/getalldevices', async (req, res) => {
+app.get('/getallcar', async (req, res) => {
     try {
-        const devices = await Device.find();
-        res.send(devices);
+        const car = await car.find();
+        res.send(car);
     } catch (error) {
         res.status(400).send(error);
     }
 });
 
 // update a specific device
-app.patch('/device/:id', async (req, res) => {
+app.patch('/car/:id', async (req, res) => {
     try {
-        const device = await Device.findByIdAndUpdate(req.params.id, req.body, {new: true});
-        if (!device) res.status(404).send('Device not found.');
-        res.send(device);
+        const car = await car.findByIdAndUpdate(req.params.id, req.body, {new: true});
+        if (!car) res.status(404).send('Car not found.');
+        res.send(car);
     } catch (error) {
         res.status(400).send(error);
     }
 });
 
 // delete a specific device
-app.delete('/device/:id', async (req, res) => {
+app.delete('/car/:id', async (req, res) => {
     try {
-        const device = await Device.findByIdAndDelete(req.params.id);
-        if (!device) res.status(404).send('Device not found.');
-        res.send(device);
+        const car = await car.findByIdAndDelete(req.params.id);
+        if (!car) res.status(404).send('car not found.');
+        res.send(car);
     } catch (error) {
         res.status(400).send(error);
     }
