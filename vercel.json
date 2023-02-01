@@ -9,6 +9,10 @@
       {
         "src": "/(.*)",
         "dest": "app.js"
+      },
+      {
+        "src": "/(.getallcar)",
+        "dest": "app.js"
       }
     ]
   }
