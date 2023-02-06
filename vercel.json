@@ -7,9 +7,21 @@
     ],
     "routes": [
       {
-        
+        "src": "/(.*)",
+        "dest": "app.js"
+      },
+      {
         "src": "/getallcar",
+        "dest": "app.js"
+      },
+      {
+        "src": "/createcar",
+        "dest": "app.js"
+      },
+      {
+        "src": "/car/:id'",
         "dest": "app.js"
       }
     ]
   }
+  
